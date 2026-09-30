@@ -1,0 +1,32 @@
+name: 'HTTPS certificate check'
+description: 'Fail the job when a site certificate is expired, expiring soon, for the wrong host, or untrusted. bash + openssl only.'
+author: 'Weio, Inc.'
+branding:
+  icon: 'lock'
+  color: 'green'
+inputs:
+  urls:
+    description: 'Hosts or URLs to check, separated by spaces, commas or newlines (e.g. "example.com www.example.com shop.example.com:8443")'
+    required: true
+  min-days:
+    description: 'Fail when a certificate expires in fewer than this many days'
+    required: false
+    default: '14'
+  timeout:
+    description: 'Seconds to wait for each TLS handshake'
+    required: false
+    default: '10'
+outputs:
+  failed:
+    description: '1 if any host failed, else 0'
+    value: ${{ steps.check.outputs.failed }}
+runs:
+  using: 'composite'
+  steps:
+    - id: check
+      shell: bash
+      env:
+        URLS: ${{ inputs.urls }}
+        MIN_DAYS: ${{ inputs.min-days }}
+        TIMEOUT: ${{ inputs.timeout }}
+      run: '"$GITHUB_ACTION_PATH/check.sh"'
