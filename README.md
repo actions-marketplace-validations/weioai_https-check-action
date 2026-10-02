@@ -1,5 +1,7 @@
 # HTTPS certificate check (GitHub Action)
 
+[![selftest](https://github.com/weioai/https-check-action/actions/workflows/selftest.yml/badge.svg)](https://github.com/weioai/https-check-action/actions/workflows/selftest.yml)
+
 Fails your workflow before your visitors find out: checks each host's TLS certificate the way a browser does and reports
 
 - **expired** or **expiring within `min-days`** (default 14)
