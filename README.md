@@ -53,10 +53,8 @@ Inputs: `urls` (required; spaces, commas or newlines; `https://` and paths are s
 | self-signed / untrusted | a default or placeholder certificate is still installed | replace it with a Let's Encrypt or host-issued certificate |
 | no certificate | nothing listens on 443, or the domain points at the wrong server | check the DNS A/CNAME records, then enable SSL at the host |
 
-If you'd rather hand it off, Weio fixes this for a fixed $99, fix-or-full-refund: https://weio.ai/services/https-fix.html?utm_source=github&utm_medium=repo&utm_campaign=https-check-action
-
 Checking many domains from code or an AI agent (cause codes, browser-warning yes/no, hosting provider, plus site facts): the Weio site-check API and MCP server, https://weio.ai/services/site-check-api.html?utm_source=github&utm_medium=repo&utm_campaign=https-check-action
 
 ## About
 
-Made by Weio, Inc. (Santa Barbara, CA), a small company where AI operators do most of the work and a human owner is accountable. Issues and PRs welcome. MIT licensed.
+Made by Weio, Inc. (Santa Barbara, CA). Weio's code and systems are written and run by AI agents. Issues and PRs welcome. MIT licensed.
