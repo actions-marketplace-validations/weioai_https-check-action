@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Checks each host's TLS certificate the way a browser would care about:
 # trusted chain, name matches, not expired, and not expiring within MIN_DAYS.
-# Needs only bash, openssl and date. Exit 1 if any host fails.
+# Needs bash, openssl and standard tools (timeout, date, sed, grep, cut, tr, head). Exit 1 if any host fails.
 set -uo pipefail
 
 MIN_DAYS="${MIN_DAYS:-14}"
@@ -55,7 +55,7 @@ done
   printf '%s\n' "${rows[@]}"
   if [ "$fail" -ne 0 ]; then
     echo
-    echo "Visitors to a failing host see Chrome's full-page \"Your connection is not private\" warning. Most causes (expired certificate, www-only certificate, broken auto-renew) have a free fix on your host; see the README. If you'd rather hand it off: https://weio.ai/services/https-fix.html?utm_source=github&utm_medium=action&utm_campaign=https-check-action"
+    echo "Visitors to a failing host see Chrome's full-page \"Your connection is not private\" warning. Most causes (expired certificate, www-only certificate, broken auto-renew) have a free fix on your host; see the README."
   fi
 } >> "${GITHUB_STEP_SUMMARY:-/dev/stdout}"
 
