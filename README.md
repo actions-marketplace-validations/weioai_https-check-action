@@ -9,7 +9,7 @@ Fails your workflow before your visitors find out: checks each host's TLS certif
 - **self-signed / untrusted chain**
 - **no certificate at all** (port 443 refused or timing out)
 
-bash + openssl only: no Docker image, no API key, nothing leaves the runner except the TLS handshakes.
+Runs with bash, openssl and standard tools (timeout, date, sed, grep, cut, tr, head): no Docker image, no API key. The script connects only to the hosts you list, for their TLS handshakes; like any step, its results go to your job log, annotations and summary.
 
 ## Usage
 
