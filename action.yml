@@ -1,5 +1,5 @@
 name: 'HTTPS certificate check'
-description: 'Fail the job when a site certificate is expired, expiring soon, for the wrong host, or untrusted. bash + openssl only.'
+description: 'Fail the job when a site certificate is expired, expiring soon, for the wrong host, or untrusted. bash and openssl, no API key.'
 author: 'Weio, Inc.'
 branding:
   icon: 'lock'
